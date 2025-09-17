@@ -1,11 +1,18 @@
 <project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>ifsul.modulo.jpa</groupId>
-  <artifactId>ifsul.modulo.jpa</artifactId>
+  <groupId>main.java.ifsul.modulo.jpa</groupId>
+  <artifactId>ifsul-modulo-jpa</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
+  <packaging>jar</packaging>  
   <name>IFSUL Modulo JPA</name>
-  <build>
+    
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
+  	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<resources>
 			<resource>
@@ -24,13 +31,14 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.14.0</version>
+				<version>3.8.1</version>
 				<configuration>
 					<release>21</release>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+	
 	<dependencies>
 		<dependency>
 		    <groupId>org.hibernate.orm</groupId>
@@ -46,6 +54,16 @@
 		    <groupId>org.postgresql</groupId>
 		    <artifactId>postgresql</artifactId>
 		    <version>42.7.7</version>
+		</dependency>
+		<dependency>
+		    <groupId>jakarta.el</groupId>
+		    <artifactId>jakarta.el-api</artifactId>
+		    <version>6.0.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.glassfish.expressly</groupId>
+		    <artifactId>expressly</artifactId>
+		    <version>6.0.0</version>
 		</dependency>
 	</dependencies>
 </project>
