@@ -1,10 +1,10 @@
-package main.java.ifsul.modulo.jpa.teste;
+package ifsul.modulo.jpa.teste;
 
 
+import ifsul.modulo.jpa.model.Pais;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import main.java.ifsul.modulo.jpa.model.Pais;
 
 public class TesteAula2Persistindo {
 

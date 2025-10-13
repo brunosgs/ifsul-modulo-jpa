@@ -1,5 +1,5 @@
-package main.java.ifsul.modulo.jpa.infra.jpa;
-
+package ifsul.modulo.jpa.infra.jpa;
+	
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

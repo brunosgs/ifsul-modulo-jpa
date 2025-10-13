@@ -1,8 +1,8 @@
-package main.java.ifsul.modulo.jpa.teste;
+package ifsul.modulo.jpa.teste;
 
+import ifsul.modulo.jpa.infra.jpa.EntityManagerUtil;
+import ifsul.modulo.jpa.model.Pais;
 import jakarta.persistence.EntityManager;
-import main.java.ifsul.modulo.jpa.infra.jpa.EntityManagerUtil;
-import main.java.ifsul.modulo.jpa.model.Pais;
 
 public class TesteAula6SingletonEntityManager {
 

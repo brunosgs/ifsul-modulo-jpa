@@ -1,4 +1,4 @@
-package main.java.ifsul.modulo.jpa.model;
+package ifsul.modulo.jpa.model;
 
 import java.io.Serializable;
 import java.util.Objects;
