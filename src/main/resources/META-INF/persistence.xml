@@ -10,6 +10,8 @@
     	
     	<class>ifsul.modulo.jpa.model.Pais</class>
     	<class>ifsul.modulo.jpa.model.Estado</class>
+    	<class>ifsul.modulo.jpa.model.Pessoa</class>
+    	<class>ifsul.modulo.jpa.model.PessoaFisica</class>
     	
         <properties>
             <!-- Database connection settings -->

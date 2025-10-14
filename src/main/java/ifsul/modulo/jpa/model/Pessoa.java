@@ -7,46 +7,46 @@ import org.hibernate.validator.constraints.Length;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "tb_estado")
-public class Estado implements Serializable {
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "tb_pessoa")
+public class Pessoa implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name = "seq_estado", sequenceName = "seq_estado_id", allocationSize = 1)
-	@GeneratedValue(generator = "seq_estado", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "seq_pessoa", sequenceName = "seq_pessoa_id", allocationSize = 1)
+	@GeneratedValue(generator = "seq_pessoa", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
 	@Column(name = "nome", length = 50, nullable = false)
 	@NotNull(message = "O nome não pode ser nulo")
-	@NotBlank(message = "O nome deve ser informado")
+	@NotBlank(message = "O nome não pode ser em branco")
 	@Length(max = 50, message = "O nome não pode ter mais de {max} caracteres")
 	private String nome;
 
-	@Column(name = "uf", length = 2, nullable = false)
-	@NotNull(message = "A UF não pode ser nulo")
-	@NotBlank(message = "A UF deve ser informado")
-	@Length(max = 2, message = "A UF não pode ter mais de {max} caracteres")
-	private String uf;
+	@Column(name = "email", length = 50, nullable = false)
+	@NotNull(message = "O email não pode ser nulo")
+	@NotBlank(message = "O email não pode ser em branco")
+	@Length(max = 50, message = "O email não pode ter mais de {max} caracteres")
+	private String email;
 
-	@ManyToOne
-	@JoinColumn(name = "pais", referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "fk_pais"))
-	@NotNull(message = "O Pais deve ser informado")
-	private Pais pais;
+	@Column(name = "telefone", length = 14, nullable = false)
+	@NotNull(message = "O telefone não pode ser nulo")
+	@NotBlank(message = "O telefone não pode ser em branco")
+	@Length(max = 14, message = "O telefone não pode ter mais de {max} caracteres")
+	private String telefone;
 
-	public Estado() {
-		super();
+	public Pessoa() {
 	}
 
 	public Integer getId() {
@@ -65,20 +65,20 @@ public class Estado implements Serializable {
 		this.nome = nome;
 	}
 
-	public String getUf() {
-		return uf;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUf(String uf) {
-		this.uf = uf;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public Pais getPais() {
-		return pais;
+	public String getTelefone() {
+		return telefone;
 	}
 
-	public void setPais(Pais pais) {
-		this.pais = pais;
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 
 	@Override
@@ -94,7 +94,7 @@ public class Estado implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Estado other = (Estado) obj;
+		Pessoa other = (Pessoa) obj;
 		return Objects.equals(id, other.id);
 	}
 
