@@ -18,7 +18,7 @@ import jakarta.validation.constraints.NotNull;
 @Entity
 @Table(name = "tb_pessoa_fisica", uniqueConstraints = {
 		@UniqueConstraint(name = "uk_pessoa_fisica", columnNames = "nome_usuario") })
-@PrimaryKeyJoinColumn(name = "id", foreignKey = @ForeignKey(name = "fk_pessoa_fisica_id"))
+@PrimaryKeyJoinColumn(name = "pessoa_fisica_id", foreignKey = @ForeignKey(name = "fk_pessoa_fisica_id"))
 public class PessoaFisica extends Pessoa implements Serializable {
 	private static final long serialVersionUID = 1L;
 
