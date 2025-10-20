@@ -12,7 +12,7 @@ import ifsul.modulo.jpa.model.PessoaFisica;
 import jakarta.persistence.EntityManager;
 import junit.framework.Assert;
 
-public class TestePersistirPessoaFisica {
+public class TesteAula8PersistirPessoaFisica {
 	EntityManager em;
 
 	@Before
