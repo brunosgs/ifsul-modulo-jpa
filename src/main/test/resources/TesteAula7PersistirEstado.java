@@ -9,7 +9,7 @@ import ifsul.modulo.jpa.model.Pais;
 import jakarta.persistence.EntityManager;
 import junit.framework.Assert;
 
-public class TestePersistirEstado {
+public class TesteAula7PersistirEstado {
 	EntityManager em;
 
 	@Before
