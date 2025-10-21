@@ -6,8 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import ifsul.modulo.jpa.infra.jpa.EntityManagerUtil;
-import ifsul.modulo.jpa.model.Estado;
-import ifsul.modulo.jpa.model.Pais;
 import ifsul.modulo.jpa.model.PessoaFisica;
 import jakarta.persistence.EntityManager;
 import junit.framework.Assert;
