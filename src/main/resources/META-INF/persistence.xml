@@ -12,6 +12,8 @@
     	<class>ifsul.modulo.jpa.model.Estado</class>
     	<class>ifsul.modulo.jpa.model.Pessoa</class>
     	<class>ifsul.modulo.jpa.model.PessoaFisica</class>
+    	<class>ifsul.modulo.jpa.model.Endereco</class>
+    	<class>ifsul.modulo.jpa.model.TipoEndereco</class>
     	
         <properties>
             <!-- Database connection settings -->

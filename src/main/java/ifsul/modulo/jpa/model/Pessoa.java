@@ -1,10 +1,13 @@
 package ifsul.modulo.jpa.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import org.hibernate.validator.constraints.Length;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,6 +15,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -46,7 +50,19 @@ public class Pessoa implements Serializable {
 	@Length(max = 14, message = "O telefone não pode ter mais de {max} caracteres")
 	private String telefone;
 
+	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
+	List<Endereco> enderecos = new ArrayList<>();
+
 	public Pessoa() {
+	}
+
+	public void adicionarEndereco(Endereco enderecoObj) {
+		enderecoObj.setPessoa(this);
+		this.enderecos.add(enderecoObj);
+	}
+
+	public void removerEndereco(int index) {
+		this.enderecos.remove(index);
 	}
 
 	public Integer getId() {
@@ -79,6 +95,14 @@ public class Pessoa implements Serializable {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+
+	public List<Endereco> getEnderecos() {
+		return enderecos;
+	}
+
+	public void setEnderecos(List<Endereco> endereco) {
+		this.enderecos = endereco;
 	}
 
 	@Override
