@@ -1,17 +1,16 @@
 package resources;
+import java.time.LocalDate;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import ifsul.modulo.jpa.infra.jpa.EntityManagerUtil;
-import ifsul.modulo.jpa.model.Endereco;
 import ifsul.modulo.jpa.model.PessoaFisica;
-import ifsul.modulo.jpa.model.TipoEndereco;
 import jakarta.persistence.EntityManager;
 import junit.framework.Assert;
 
-public class TesteAula9PersitindoEndereco {
+public class TesteAula08PersistirPessoaFisica {
 	EntityManager em;
 
 	@Before
@@ -24,36 +23,31 @@ public class TesteAula9PersitindoEndereco {
 		em.close();
 	}
 
-	@SuppressWarnings("deprecation")
 	@Test
 	public void test() {
 		boolean exception = false;
-
+		
 		try {
-			PessoaFisica pf = em.find(PessoaFisica.class, 5);
-			Endereco endereco = new Endereco();
-
-			endereco.setBairro("Centro");
-			endereco.setCep("888999-99");
-			endereco.setEndereco("Rua xxx");
-			endereco.setNumero("2163");
-			endereco.setComplemento("AP 1804");
-			endereco.setNickName("APTO");
-			endereco.setReferencia("Prox. ao mercado");
+			PessoaFisica pf = new PessoaFisica();
 			
-			endereco.setTipoEnderco(em.find(TipoEndereco.class, 1));
+			pf.setCpf("91526460092");
+			pf.setEmail("email@teste.com.br");
+			pf.setNascimento(LocalDate.now());
+			pf.setNome("Teste de pessoa fisica");
+			pf.setNomeUsuario("testePF");
+			pf.setRg("1851484");
+			pf.setSenha("testesenha");
+			pf.setTelefone("(66)3526-5498");
 			
-			pf.adicionarEndereco(endereco);
-
 			em.getTransaction().begin();
 			em.persist(pf);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			exception = true;
-
+			
 			e.printStackTrace();
 		}
-
+		
 		Assert.assertEquals(false, exception);
 	}
 
