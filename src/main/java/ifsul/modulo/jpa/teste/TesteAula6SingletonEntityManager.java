@@ -6,18 +6,18 @@ import jakarta.persistence.EntityManager;
 
 public class TesteAula6SingletonEntityManager {
 
-	public static void main(String[] args) {
-		EntityManager em = EntityManagerUtil.getEntityManager();
+    public static void main(String[] args) {
+	EntityManager em = EntityManagerUtil.getEntityManager();
 
-		Pais pais = new Pais();
+	Pais pais = new Pais();
 
-		pais.setNome("Chile");
-		pais.setIso("CHI");
+	pais.setNome("Chile");
+	pais.setIso("CHI");
 
-		em.getTransaction().begin();
-		em.persist(pais);
-		em.getTransaction().commit();
-		em.close();
-	}
+	em.getTransaction().begin();
+	em.persist(pais);
+	em.getTransaction().commit();
+	em.close();
+    }
 
 }

@@ -21,66 +21,70 @@ import jakarta.validation.constraints.NotNull;
 @Entity
 @Table(name = "tb_cidade")
 public class Cidade implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@SequenceGenerator(name = "seq_cidade", sequenceName = "seq_cidade_id", allocationSize = 1)
-	@GeneratedValue(generator = "seq_cidade", strategy = GenerationType.SEQUENCE)
-	private Integer id;
+    @Id
+    @SequenceGenerator(name = "seq_cidade", sequenceName = "seq_cidade_id", allocationSize = 1)
+    @GeneratedValue(generator = "seq_cidade", strategy = GenerationType.SEQUENCE)
+    private Integer id;
 
-	@NotBlank(message = "O nome deve ser informado")
-	@NotNull(message = "O nome não pode ser nulo")
-	@Length(max = 50, message = "O nome não deve ter mais que {max} caracteres")
-	@Column(name = "nome", length = 50, nullable = false)
-	private String nome;
+    @NotBlank(message = "O nome deve ser informado")
+    @NotNull(message = "O nome não pode ser nulo")
+    @Length(max = 50, message = "O nome não deve ter mais que {max} caracteres")
+    @Column(name = "nome", length = 50, nullable = false)
+    private String nome;
 
-	@NotNull(message = "O estado deve ser informado")
-	@ManyToOne
-	@JoinColumn(name = "estado", referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "fk_estado"))
-	private Estado estado;
+    @NotNull(message = "O estado deve ser informado")
+    @ManyToOne
+    @JoinColumn(
+	    name = "estado",
+	    referencedColumnName = "id",
+	    nullable = false,
+	    foreignKey = @ForeignKey(name = "fk_estado"))
+    private Estado estado;
 
-	public Cidade() {
-	}
+    public Cidade() {
+    }
 
-	public Integer getId() {
-		return id;
-	}
+    public Integer getId() {
+	return id;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public void setId(Integer id) {
+	this.id = id;
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public String getNome() {
+	return nome;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public void setNome(String nome) {
+	this.nome = nome;
+    }
 
-	public Estado getEstado() {
-		return estado;
-	}
+    public Estado getEstado() {
+	return estado;
+    }
 
-	public void setEstado(Estado estado) {
-		this.estado = estado;
-	}
+    public void setEstado(Estado estado) {
+	this.estado = estado;
+    }
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
+    @Override
+    public int hashCode() {
+	return Objects.hash(id);
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Cidade other = (Cidade) obj;
-		return Objects.equals(id, other.id);
-	}
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj)
+	    return true;
+	if (obj == null)
+	    return false;
+	if (getClass() != obj.getClass())
+	    return false;
+	Cidade other = (Cidade) obj;
+	return Objects.equals(id, other.id);
+    }
 
 }
