@@ -42,10 +42,10 @@ public class Estado implements Serializable {
 
     @ManyToOne
     @JoinColumn(
-	    name = "pais",
+	    name = "pais_id",
 	    referencedColumnName = "id",
 	    nullable = false,
-	    foreignKey = @ForeignKey(name = "fk_pais"))
+	    foreignKey = @ForeignKey(name = "fk_pais_id"))
     @NotNull(message = "O Pais deve ser informado")
     private Pais pais;
 

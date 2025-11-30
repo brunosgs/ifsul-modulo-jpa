@@ -37,10 +37,10 @@ public class Cidade implements Serializable {
     @NotNull(message = "O estado deve ser informado")
     @ManyToOne
     @JoinColumn(
-	    name = "estado",
+	    name = "estado_id",
 	    referencedColumnName = "id",
 	    nullable = false,
-	    foreignKey = @ForeignKey(name = "fk_estado"))
+	    foreignKey = @ForeignKey(name = "fk_estado_id"))
     private Estado estado;
 
     public Cidade() {

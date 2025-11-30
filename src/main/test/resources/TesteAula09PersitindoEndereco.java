@@ -40,7 +40,6 @@ public class TesteAula09PersitindoEndereco {
 	    endereco.setComplemento("AP 1804");
 	    endereco.setNickName("APTO");
 	    endereco.setReferencia("Prox. ao mercado");
-
 	    endereco.setTipoEnderco(em.find(TipoEndereco.class, 1));
 
 	    pf.adicionarEndereco(endereco);

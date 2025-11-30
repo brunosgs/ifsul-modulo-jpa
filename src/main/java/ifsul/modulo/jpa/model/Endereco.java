@@ -74,7 +74,7 @@ public class Endereco implements Serializable {
 	    name = "pessoa_id",
 	    referencedColumnName = "id",
 	    nullable = false,
-	    foreignKey = @ForeignKey(name = "fk_pessoa"))
+	    foreignKey = @ForeignKey(name = "fk_pessoa_id"))
     private Pessoa pessoa;
 
     @NotNull(message = "O tipo de endereço deve ser informado")
@@ -83,7 +83,7 @@ public class Endereco implements Serializable {
 	    name = "tipo_endereco_id",
 	    referencedColumnName = "id",
 	    nullable = false,
-	    foreignKey = @ForeignKey(name = "fk_endereco"))
+	    foreignKey = @ForeignKey(name = "fk_tipo_endereco_id"))
     private TipoEndereco tipoEnderco;
 
     public Endereco() {
