@@ -75,6 +75,24 @@ public class PessoaFisica extends Pessoa implements Serializable {
 		    columnNames = { "pessoa_fisica_id", "produto_id" }) })
     private List<Produto> desejos = new ArrayList<>();
 
+    @ManyToMany
+    @JoinTable(
+	    name = "tb_permissoes",
+	    joinColumns = @JoinColumn(
+		    name = "nome_usuario",
+		    referencedColumnName = "nome_usuario",
+		    nullable = false,
+		    foreignKey = @ForeignKey(name = "fk_nome_usuario")),
+	    inverseJoinColumns = @JoinColumn(
+		    name = "permissao_nome",
+		    referencedColumnName = "nome",
+		    nullable = false,
+		    foreignKey = @ForeignKey(name = "fk_permissao_nome")),
+	    uniqueConstraints = { @UniqueConstraint(
+		    name = "uk_permissoes_nome_usuario_permissao_nome",
+		    columnNames = { "nome_usuario", "permissao_nome" }) })
+    private List<Permissao> permissoes = new ArrayList<>();
+
     public PessoaFisica() {
     }
 
@@ -124,6 +142,14 @@ public class PessoaFisica extends Pessoa implements Serializable {
 
     public void setDesejos(List<Produto> desejos) {
 	this.desejos = desejos;
+    }
+
+    public List<Permissao> getPermissoes() {
+	return permissoes;
+    }
+
+    public void setPermissoes(List<Permissao> permissoes) {
+	this.permissoes = permissoes;
     }
 
 }

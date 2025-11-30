@@ -18,6 +18,7 @@
     	<class>ifsul.modulo.jpa.model.Cidade</class>
     	<class>ifsul.modulo.jpa.model.Marca</class>
     	<class>ifsul.modulo.jpa.model.Produto</class>
+    	<class>ifsul.modulo.jpa.model.Permissao</class>
     	
         <properties>
             <!-- Database connection settings -->
