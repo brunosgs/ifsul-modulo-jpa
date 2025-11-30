@@ -14,6 +14,10 @@
     	<class>ifsul.modulo.jpa.model.PessoaFisica</class>
     	<class>ifsul.modulo.jpa.model.Endereco</class>
     	<class>ifsul.modulo.jpa.model.TipoEndereco</class>
+    	<class>ifsul.modulo.jpa.model.Categoria</class>
+    	<class>ifsul.modulo.jpa.model.Cidade</class>
+    	<class>ifsul.modulo.jpa.model.Marca</class>
+    	<class>ifsul.modulo.jpa.model.Produto</class>
     	
         <properties>
             <!-- Database connection settings -->
